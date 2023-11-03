@@ -1,0 +1,8 @@
+This is for the insurance claim notebook predictions
+
+Preprocessing was performed with no missing values and a few outliers were handled. 
+Ordinal encoding was used throughout since the data set generally didn't have high cardinality amongst it's features
+
+Due to the class imbalance for the target variable, random undersampling was preferred. 
+However, selecting the best features using SelectKBest had little effect on the predictive. The performance increased by ~0.005.
+Try to increase the predictive model's power more signinficantly. Probably using hyperparameter tuning or introducing a new classification predictive algorithm.
