@@ -3,4 +3,9 @@ numpy
 seaborn
 matplotlib
 imblearn
--e .
+scikit-learn
+dill
+xgboost
+catboost
+Flask
+# -e .
