@@ -14,6 +14,9 @@ from src.logger import logging
 from src.utils import save_object
 from src.utils import evaluate_model
 
+#selected features
+features=['population_density','steering_type','policy_tenure','age_of_car','age_of_policyholder']
+
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path = os.path.join("artifacts", "model.pkl")

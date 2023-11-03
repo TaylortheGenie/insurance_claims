@@ -29,11 +29,10 @@ class DataTransformation:
         '''
         
         try:
-            features=['policy_tenure', 'age_of_car', 'age_of_policyholder', 'population_density', 'cylinder', 'transmission_type','rear_brakes_type', 'is_parking_camera', 'is_tpms', 
-                      'is_parking_sensors','is_rear_window_wiper', 'is_rear_window_defogger']
+            features=['age_of_car', 'age_of_policyholder', 'policy_tenure', 'population_density', 'steering_type','is_claim']
             target=['is_claim']
-            scale_features=['population_density', 'cylinder']
-            categorical_features=['transmission_type','rear_brakes_type', 'is_parking_camera', 'is_tpms', 'is_parking_sensors','is_rear_window_wiper', 'is_rear_window_defogger']
+            scale_features=['population_density']
+            categorical_features=['steering_type']
 
             num_preprocessor = Pipeline(
                 steps=[
@@ -57,7 +56,7 @@ class DataTransformation:
             preprocessor  = ColumnTransformer(
                 [
                 ('num', num_preprocessor, scale_features),
-                ('cat', cat_preprocessor, categorical_features),
+                ('cat', cat_preprocessor, categorical_features)
                 ], remainder='passthrough'
             )
 
@@ -79,17 +78,16 @@ class DataTransformation:
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            features=['population_density', 'cylinder', 'transmission_type','rear_brakes_type', 'is_parking_camera', 'is_tpms', 'is_parking_sensors','is_rear_window_wiper', 'is_rear_window_defogger',
-                      'policy_tenure', 'age_of_car', 'age_of_policyholder', 'is_claim']
+            features=['age_of_car', 'age_of_policyholder', 'policy_tenure', 'population_density', 'steering_type', 'is_claim']
             target=['is_claim']
-            numerical_features=['population_density', 'cylinder', 'policy_tenure', 'age_of_car', 'age_of_policyholder', ]
-            categorical_features=['transmission_type','rear_brakes_type', 'is_parking_camera', 'is_tpms', 'is_parking_sensors','is_rear_window_wiper', 'is_rear_window_defogger']
+            numerical_features=['age_of_car', 'age_of_policyholder', 'policy_tenure', 'population_density']
+            categorical_features=['steering_type']
 
-            train_df,target_train_df=RandomUnderSampler(random_state=45).fit_resample(train_df[features[0:12]],train_df[target])
-            input_train_df=train_df[features[0:12]]
+            train_df,target_train_df=RandomUnderSampler(random_state=45).fit_resample(train_df[features[0:5]],train_df[target])
+            input_train_df=train_df#[features[0:5]]
             #target_train_df=train_df[target]
 
-            input_test_df=test_df[features[0:12]]#.drop(columns=[target],axis=1)
+            input_test_df=test_df[features[0:5]]#.drop(columns=[target],axis=1)
             target_test_df=test_df[target]
 
             logging.info(
