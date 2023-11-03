@@ -1,0 +1,7 @@
+/* Base styles (extra small devices - mobile */
+:root {
+    --bs-font-sans-serif: "Roboto", san-serif;
+    --bs-blue: #2067F5;
+    --bs-primary: #2067F5;
+}
+
