@@ -38,8 +38,7 @@
                             target="_blank">Contact Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                        href="{{ url_for('home')}}">Return to home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('home')}}">Return to home</a>
                     </li>
                 </ul>
             </div>
@@ -47,36 +46,105 @@
     </nav>
 
     <!--STATEMENT-->
-    <div class="container my-5 text-center">
+    <div class="container my-5 text-center fs-4 mt-3">
 
         <h1 class="text-center">PREDICTION:</h1>
-       
+
         {% if results > 0 %}
         <img src="{{ url_for('static', filename='warning.png') }}" class="img-fluid" alt="Loading image">
-        <div class="container">    
-            blah blah blah
-        </div>
-        
-        {% else %}
-        <img src="{{ url_for('static', filename='okay.jpg') }}" class="img-fluid" alt="Loading image">
-        <div class="container">
-            blah blah
+        <div class="container mt-3">
+            <p class="text-start text-danger">
+                Based on the information provided, you are most likely to file an insurance claim within the next few
+                months.
+                While it is good to hope for the best, necessary precautions still need to be taken.
+            </p>
+            <p class="text-start">
+                Remember to always practice defensive driving, especially in densely populated areas.
+                Should there be an incident:
+            </p>
+            <div class="container text-start mt-2">
+                <ul>
+                    <li>
+                        Gather all relevant information of you and any other drivers involved
+                    </li>
+                    <li>
+                        File your claim as soon as possible to increase the chances of a thorough investigation
+                    </li>
+                    <li>
+                        Honesty and accuracy are key when providing information
+                    </li>
+                    <li>
+                        Cooperate with your insurance company
+                    </li>
+                    <li>
+                        Exercise patience as much as possible at the time of the incident
+                    </li>
+                </ul>
+            </div>
+            <p class="text-start">
+                If you have any questions or concerns about filing an insurance claim, be sure to contact your insurance
+                company.
+                They should be happy to help!
+            </p>
         </div>
 
+        {% else %}
+        <img src="{{ url_for('static', filename='okay.jpg') }}" class="img-fluid" alt="Loading image">
+        <div class="container mt-3">
+            <p class="text-start text-success">
+                Based on the information provided, the odds of you filing an insurance claim within the next few
+                months are unlikely.
+                Though a positive outcome was generated, necessary precautions still need to be taken.
+            </p>
+            <p class="text-start">
+                Remember to always practice defensive driving, especially in densely populated areas.
+                Should there be an incident:
+            </p>
+            <div class="container text-start mt-2">
+                <ul>
+                    <li>
+                        Gather all relevant information of you and any other drivers involved
+                    </li>
+                    <li>
+                        File your claim as soon as possible to increase the chances of a thorough investigation
+                    </li>
+                    <li>
+                        Honesty and accuracy are key when providing information
+                    </li>
+                    <li>
+                        Cooperate with your insurance company
+                    </li>
+                    <li>
+                        Exercise patience as much as possible at the time of the incident
+                    </li>
+                </ul>
+            </div>
+            <p class="text-start">
+                However, if you have any questions or concerns about filing an insurance claim, be sure to contact your insurance
+                company.
+                They should be happy to help!
+            </p>
+        </div>
         {% endif %}
     </div>
 
     <!--CONCLUSION-->
     <div class="container my-4">
         <div class="fs-4 d-none d-xl-block">
-            <p>I want to thank you for your engagement in this project. Please, do not hesitate to contact me for any suggestions on how to improve user interaction and experience. 
-            For those of you who may be interested in more detailed information regarding the full stack project application, kindly visit my <a href="https://github.com/TaylortheGenie/insurance_claims" target="_blank">github link</a>.
+            <p>I want to thank you for your engagement in this project. Please, do not hesitate to contact me for any
+                suggestions on how to improve user interaction and experience.
+                For those of you who may be interested in more detailed information regarding the full stack project
+                application, kindly visit my <a href="https://github.com/TaylortheGenie/insurance_claims"
+                    target="_blank">github link</a>.
             </p>
             <p>Thank you for your time and feedback.</p>
         </div>
         <div class="fs-5 d-sm-block d-xl-none">
-            <p>I want to thank you for your engagement in this project. Please, do not hesitate to contact me for any suggestions on how to improve user interaction and experience. 
-            For those of you who may be interested in more detailed information regarding the full stack project application, kindly visit my <a href="https://github.com/TaylortheGenie/insurance_claims" target="_blank">github link</a>.
+            <p>I want to thank you for your engagement in this project. Please, do not hesitate to contact me for any
+                suggestions on how to improve user interaction and experience.
+                For those of you who may be interested in more detailed information regarding the full stack project
+                application, kindly visit my <a href="https://github.com/TaylortheGenie/insurance_claims"
+                    target="_blank">github link</a>.
             </p>
             <p>Thank you for your time and feedback.</p>
         </div>
