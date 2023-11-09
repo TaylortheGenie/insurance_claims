@@ -1,5 +1,6 @@
 import sys 
 import pandas as pd
+import numpy as np
 from src.exception import CustomException
 from src.utils import load_object
 
@@ -15,7 +16,9 @@ class PredictPipeline:
             preprocessor=load_object(file_path=preprocessor_path)
             model=load_object(file_path=model_path)
             data_processed=preprocessor.transform(features)
-            preds=model.predict(data_processed)
+            preds=model.predict_proba(data_processed)[:,1]
+            preds=pd.Series(preds)
+            preds=np.where(preds<0.533,0,1)
             return preds
         
         except Exception as e:
