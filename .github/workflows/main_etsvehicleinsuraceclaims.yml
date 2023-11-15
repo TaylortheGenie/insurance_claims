@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://vehicleinsuranceclaims.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8f69ff0aa31241f2a14bf2db045447b5 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_e6fd8d14643646c7bb869ce5533d072f }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_2c75f0c8ded447bc937e83c208428903 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_5a4ec78777ee4be58b5a0c00b900493e }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: vehicleinsuranceclaims.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8f69ff0aa31241f2a14bf2db045447b5 }}/autoinsuranceclaims:${{ github.sha }}
+        tags: vehicleinsuranceclaims.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c75f0c8ded447bc937e83c208428903 }}/vehicleinsuranceclaims/autoinsuranceclaims:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'etsvehicleinsuraceclaims'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8a44a08a0d604bfdbd6ea1549e017b02 }}
-        images: 'vehicleinsuranceclaims.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8f69ff0aa31241f2a14bf2db045447b5 }}/autoinsuranceclaims:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_472af7faedf5482ebbb27319c4f3600a }}
+        images: 'vehicleinsuranceclaims.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c75f0c8ded447bc937e83c208428903 }}/vehicleinsuranceclaims/autoinsuranceclaims:${{ github.sha }}'
