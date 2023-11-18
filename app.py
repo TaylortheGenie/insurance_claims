@@ -6,7 +6,9 @@ from sklearn.preprocessing import StandardScaler,OrdinalEncoder
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 from src.utils import scale
 
-app=Flask(__name__)
+application=Flask(__name__)
+app=application
+
 
 #route for homepage
 
@@ -48,4 +50,4 @@ def okay():
     return render_template("okay.jpg")
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=80)
+    app.run(host="0.0.0.0")
