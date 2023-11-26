@@ -50,4 +50,8 @@ def okay():
     return render_template("okay.jpg")
 
 if __name__=="__main__":
+<<<<<<< HEAD
     app.run(host="0.0.0.0")
+=======
+    app.run(host="0.0.0.0")
+>>>>>>> d8006e4d4fcc6f41fe6f1a9fb542d357a16e5367
