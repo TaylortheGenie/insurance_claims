@@ -37,96 +37,52 @@
                             href="mailto:esampson692@gmail.com?subject=Vehicle Insurance Claims Project"
                             target="_blank">Contact Me</a>
                     </li>
+                    <li class="nav-item dropdown d-md-none">
+                        <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Input definitions
+                        </span>
+                        <div class="dropdown-menu py-1 px-1">
+                            <div>
+                                <b>Policy tenure:</b> Indicates the time period for the insurance policy.
+                            </div>
+                            <div>
+                                <b>Age of vehicle:</b> Indicates the age of the vehicle in years.
+                            </div>
+                            <div>
+                                <b>Age of policyholder:</b> Indicates the age of the policyholder in years.
+                            </div>
+                            <div>
+                                <b>Population density:</b> Indicates the population density of your city.
+                            </div>
+                            <div>
+                                <b>Steering type:</b> Indicates the steering mode used in the vehicles. There are three options to choose from.
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
    
-       <!--STATEMENT-->
-       <div class="container my-5 text-center fs-4 mt-3">
-
-        <h1 class="text-center">PREDICTION:</h1>
-
-        {% if results > 0 %}
-        <img src="{{ url_for('static', filename='warning.png') }}" class="img-fluid" alt="Loading image">
-        <div class="container mt-3">
-            <p class="text-start text-danger">
-                Based on the information provided, you are most likely to file an insurance claim within the next few
-                months.
-                While it is good to hope for the best, necessary precautions still need to be taken.
-            </p>
-            <p class="text-start">
-                Remember to always practice defensive driving, especially in densely populated areas.
-                Should there be an incident:
-            </p>
-            <div class="container text-start mt-2">
-                <ul>
-                    <li>
-                        Gather all relevant information of you and any other drivers involved
-                    </li>
-                    <li>
-                        File your claim as soon as possible to increase the chances of a thorough investigation
-                    </li>
-                    <li>
-                        Honesty and accuracy are key when providing information
-                    </li>
-                    <li>
-                        Cooperate with your insurance company
-                    </li>
-                    <li>
-                        Exercise patience as much as possible at the time of the incident
-                    </li>
-                </ul>
-            </div>
-            <p class="text-start">
-                If you have any questions or concerns about filing an insurance claim, be sure to contact your insurance
-                company.
-                They should be happy to help!
-            </p>
-        </div>
-
-        {% else %}
-        <img src="{{ url_for('static', filename='okay.jpg') }}" class="img-fluid" alt="Loading image">
-        <div class="container mt-3">
-            <p class="text-start text-success">
-                Based on the information provided, the odds of you filing an insurance claim within the next few
-                months are unlikely.
-                Though a positive outcome was generated, necessary precautions still need to be taken.
-            </p>
-            <p class="text-start">
-                Remember to always practice defensive driving, especially in densely populated areas.
-                Should there be an incident:
-            </p>
-            <div class="container text-start mt-2">
-                <ul>
-                    <li>
-                        Gather all relevant information of you and any other drivers involved
-                    </li>
-                    <li>
-                        File your claim as soon as possible to increase the chances of a thorough investigation
-                    </li>
-                    <li>
-                        Honesty and accuracy are key when providing information
-                    </li>
-                    <li>
-                        Cooperate with your insurance company
-                    </li>
-                    <li>
-                        Exercise patience as much as possible at the time of the incident
-                    </li>
-                </ul>
-            </div>
-            <p class="text-start">
-                However, if you have any questions or concerns about filing an insurance claim, be sure to contact your insurance
-                company.
-                They should be happy to help!
-            </p>
-        </div>
-        {% endif %}
-    </div>
-
     <!--FORM-->
     <div class="container px-4 min-vh-100 mt-5">
+        <div class="d-sm-block d-xxl-none fs-5">
+            <h1>Introduction</h1>
+            <p>
+                Welcome to the vehicle insurance claim prediction application. This application uses
+                machine learning to predict whether or not a policyholder will file a claim for vehicle
+                insurance within the next six months. To use the application, simply fill out the form provided.
+            </p>
+            <p>
+                Once you have entered this information, click on the 'Predict' button and the
+                application will determine whether or not you are likely to file a claim for vehicle insurance.
+            </p>
+            <p>
+                Kindly note that this application is not a substitute for professional advice! If you have
+                any questions about your insurance coverage, please contact your insurance agent.
+            </p>
+        </div>
         <div class="row flex-md-row py-4 mt-5" aria-required="true">
             <form class="row col-md-6 align-items-center fs-5" action= "{{ url_for('predict') }}" method="POST">
                 <div class="mb-3">
@@ -160,9 +116,33 @@
                     <input type="submit" class="btn btn-secondary container" value="Predict">
                 </div>
             </form>
+            <div class="row col-md-6">
+                <h1 class="d-none d-xxl-block">Introduction</h1>
+                <p class="d-none d-xxl-block fs-5">
+                    Welcome to the vehicle insurance claim prediction application. This application uses
+                    machine learning to predict whether or not a policyholder will file a claim for vehicle
+                    insurance within the next six months. To use the application, simply fill out the form provided.
+                </p>
+                <p class="d-none d-xxl-block fs-5">
+                    Once you have entered this information, click on the 'Predict' button and the
+                    application will determine whether or not you are likely to file a claim for vehicle insurance.
+                </p>
+                <p class="d-none d-xxl-block fs-5">
+                    Please not that this application is not a substitute for professional advice! If you have
+                    any questions about your insurance coverage, please contact your insurance agent.
+                </p>
+                <div class="my-2 d-none d-md-block fs-5">
+                    <h1 class="d-none d-md-block">Input definitions</h1>
+                    <div class="my-4"><b>Policy tenure:</b> Indicates the time period for the insurance policy.</div>
+                    <div class="my-4"><b>Age of vehicle:</b> Indicates the age of the vehicle in years.</div>
+                    <div class="my-4"><b>Age of policyholder:</b> Indicates the age of the policyholder in years.</div>
+                    <div class="my-4"><b>Population density:</b> Indicates how densely populated your residing city is.</div>
+                    <div class="my-4"><b>Steering type:</b> Indicates the steering mode used in the vehicles. There are three options to choose from.</div>
+                </div>
+            </div>
         </div>
     </div>
-
+    
     <!--FOOTER-->
     <div class="container-fluid text-center bg-secondary-subtle">
         <footer class="py-1 mt-4 mb-0">

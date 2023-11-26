@@ -14,7 +14,7 @@ app=application
 
 @app.route('/')
 def home():
-    return render_template('index.html') #paragraph and tings from home
+    return render_template('home.html') #paragraph and tings from home
 
 @app.route('/predict',methods=['GET', 'POST'])
 def predict():
@@ -39,7 +39,7 @@ def predict():
 
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(preds_df)
-        return render_template('predicted.html', results=results[0])
+        return render_template('index.html', results=results[0])
     
 @app.route("/warning.png")
 def warning():
@@ -50,4 +50,4 @@ def okay():
     return render_template("okay.jpg")
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0")
