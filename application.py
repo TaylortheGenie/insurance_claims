@@ -18,9 +18,7 @@ def home():
 
 @app.route('/predict',methods=['GET', 'POST'])
 def predict():
-    if request.method=='GET':
-        return render_template('home.html')
-    else:
+    if request.method=='POST':
         data=CustomData(
             policy_tenure=float(request.form.get('policy_tenure')),
             age_of_car=float(request.form.get('age_of_car')),
@@ -40,6 +38,8 @@ def predict():
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(preds_df)
         return render_template('predicted.html', results=results[0])
+    else:
+        return render_template('home.html')
     
 @app.route("/warning.png")
 def warning():
