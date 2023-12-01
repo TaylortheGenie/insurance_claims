@@ -15,8 +15,12 @@ application=Flask(__name__)
 def home():
     return render_template('home.html') #paragraph and tings from home
 
-@application.route('/predict',methods=['POST'])
+@application.route('/predict',methods=['GET', 'POST'])
 def predict():
+    if request.method=='GET':
+        return render_template('home.html')
+    
+    else:
         data=CustomData(
             policy_tenure=float(request.form.get('policy_tenure')),
             age_of_car=float(request.form.get('age_of_car')),
