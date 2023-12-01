@@ -41,13 +41,13 @@ def predict():
         results=predict_pipeline.predict(preds_df)
         return render_template('predicted.html', results=results[0])
     
-@application.route("/warning.png")
-def warning():
-    return render_template("warning.png")
+# @application.route("/warning.png")
+# def warning():
+#     return render_template("warning.png")
 
-@application.route("/okay.jpg")
-def okay():
-    return render_template("okay.jpg")
+# @application.route("/okay.jpg")
+# def okay():
+#     return render_template("okay.jpg")
 
 if __name__=="__main__":
     application.run(host="0.0.0.0")
