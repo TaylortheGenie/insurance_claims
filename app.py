@@ -6,16 +6,16 @@ from sklearn.preprocessing import StandardScaler,OrdinalEncoder
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 from src.utils import scale
 
-application=Flask(__name__)
+app=Flask(__name__)
 
 
 #route for homepage
 
-@application.route('/')
+@app.route('/')
 def home():
     return render_template('home.html') #paragraph and tings from home
 
-@application.route('/predict',methods=['GET', 'POST'])
+@app.route('/predict',methods=['GET', 'POST'])
 def predict():
     if request.method=='GET':
         return render_template('home.html')
@@ -41,13 +41,15 @@ def predict():
         results=predict_pipeline.predict(preds_df)
         return render_template('predicted.html', results=results[0])
     
-# @application.route("/warning.png")
+# @app
+#.route("/warning.png")
 # def warning():
 #     return render_template("warning.png")
 
-# @application.route("/okay.jpg")
+# @app
+#.route("/okay.jpg")
 # def okay():
 #     return render_template("okay.jpg")
 
 if __name__=="__main__":
-    application.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",debug=True,port=5000)
