@@ -7,16 +7,15 @@ from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 from src.utils import scale
 
 application=Flask(__name__)
-app=application
 
 
 #route for homepage
 
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('home.html') #paragraph and tings from home
 
-@app.route('/predict',methods=['POST'])
+@application.route('/predict',methods=['POST'])
 def predict():
         data=CustomData(
             policy_tenure=float(request.form.get('policy_tenure')),
@@ -38,13 +37,13 @@ def predict():
         results=predict_pipeline.predict(preds_df)
         return render_template('predicted.html', results=results[0])
     
-@app.route("/warning.png")
+@application.route("/warning.png")
 def warning():
     return render_template("warning.png")
 
-@app.route("/okay.jpg")
+@application.route("/okay.jpg")
 def okay():
     return render_template("okay.jpg")
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")
+    application.run(host="0.0.0.0")
