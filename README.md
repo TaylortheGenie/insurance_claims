@@ -17,9 +17,13 @@ The raw dataset comprises of 43 predictor variables, and had to be filtered down
 These 5 features are:
 
 `policy_tenure`: The duration of the insurance policy.
+
 `age_of_car`: The age of the policyholder's vehicle.
+
 `age_of_policyholder`: The age of the policyholder.
+
 `population_density`: The number people per unit of area.
+
 `steering_type`: The type of steering used in the policyholder's vehicle. This was the only categorical variable used for generating predictions.
 
 **Target variable**:
