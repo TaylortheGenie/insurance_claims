@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
+from flask_cors import CORS, cross_origin
 
 from sklearn.preprocessing import StandardScaler,OrdinalEncoder
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
@@ -13,10 +14,12 @@ app = application
 #route for homepage
 
 @app.route('/')
+@cross_origin()
 def home_page():
     return render_template('index.html') 
 
 @app.route('/predict',methods=['GET', 'POST'])
+@cross_origin()
 def predict():
     if request.method=='GET':
         return render_template('index.html')
