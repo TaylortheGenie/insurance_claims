@@ -6,19 +6,20 @@ from sklearn.preprocessing import StandardScaler,OrdinalEncoder
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 from src.utils import scale
 
-app=Flask(__name__)
+application=Flask(__name__)
+app = application
 
 
 #route for homepage
 
 @app.route('/')
-def home():
-    return render_template('home.html') #paragraph and tings from home
+def home_page():
+    return render_template('index.html') 
 
 @app.route('/predict',methods=['GET', 'POST'])
 def predict():
     if request.method=='GET':
-        return render_template('home.html')
+        return render_template('index.html')
     
     else:
         data=CustomData(
@@ -31,25 +32,20 @@ def predict():
 
         preds_df=data.get_data_as_dataframe()
         #perform scaling
-        scale(preds_df,'policy_tenure',5,0.5)     #for the policy tenure
-        scale(preds_df,'age_of_car',15,0)     #for the vehicle age
-        scale(preds_df,'age_of_policyholder',52,18)     #for age of the policyholder
+        scale(preds_df,'policy_tenure',5,0.5)     
+        scale(preds_df,'age_of_car',15,0)     
+        scale(preds_df,'age_of_policyholder',52,18)
         
         print(preds_df)
 
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(preds_df)
-        return render_template('predicted.html', results=results[0])
-    
-# @app
-#.route("/warning.png")
-# def warning():
-#     return render_template("warning.png")
+        if results[0] == 0:
+            results = "low"
+        else:
+            results = "high"
 
-# @app
-#.route("/okay.jpg")
-# def okay():
-#     return render_template("okay.jpg")
+        return render_template('index.html', prediction="The possibility of filing an insurance within the next six months is {}.".format(results))
 
 if __name__=="__main__":
     app.run(host="0.0.0.0")
