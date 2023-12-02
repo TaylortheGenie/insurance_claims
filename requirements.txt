@@ -8,5 +8,4 @@ dill
 xgboost
 catboost
 flask
-flask_cors
 # -e .

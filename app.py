@@ -1,7 +1,6 @@
 from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
-from flask_cors import CORS, cross_origin
 
 from sklearn.preprocessing import StandardScaler,OrdinalEncoder
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
@@ -14,15 +13,13 @@ app = application
 #route for homepage
 
 @app.route('/')
-@cross_origin()
-def home_page():
-    return render_template('index.html') 
+def home():
+    return render_template('home.html') #paragraph and tings from home
 
 @app.route('/predict',methods=['GET', 'POST'])
-@cross_origin()
 def predict():
     if request.method=='GET':
-        return render_template('index.html')
+        return render_template('home.html')
     
     else:
         data=CustomData(
@@ -35,20 +32,23 @@ def predict():
 
         preds_df=data.get_data_as_dataframe()
         #perform scaling
-        scale(preds_df,'policy_tenure',5,0.5)     
-        scale(preds_df,'age_of_car',15,0)     
-        scale(preds_df,'age_of_policyholder',52,18)
+        scale(preds_df,'policy_tenure',5,0.5)     #for the policy tenure
+        scale(preds_df,'age_of_car',15,0)     #for the vehicle age
+        scale(preds_df,'age_of_policyholder',52,18)     #for age of the policyholder
         
         print(preds_df)
 
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(preds_df)
-        if results[0] == 0:
-            results = "low"
-        else:
-            results = "high"
+        return render_template('predicted.html', results=results[0])
+    
+@app.route("/Image/warning.png")
+def warning():
+    return render_template("warning.png")
 
-        return render_template('index.html', prediction="The possibility of filing an insurance within the next six months is {}.".format(results))
+@app.route("/Image/okay.jpg")
+def okay():
+    return render_template("okay.jpg")
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
