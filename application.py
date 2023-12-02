@@ -48,4 +48,4 @@ def predict():
         return render_template('index.html', prediction="The possibility of filing an insurance within the next six months is {}.".format(results))
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",port=5000)
