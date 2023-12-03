@@ -8,6 +8,8 @@
 
 ## Introduction
 
+This is an end to end machine learning project using flask for deployment.
+
 The goal of this project is to predict the *possibility* that an insurance policyholder files a claim within the next six months. This is a classification analysis project.
 
 **Predictor variables**:
@@ -34,3 +36,13 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
 
 ## Directories
 
+- `artifacts`: This folder contains the datasets and pickled files.
+    - `data.csv`; the raw dataset
+    - `model.pkl`; the pickled file containing model training, hyperparameter tuning and final model selection
+    - `preprocessor.pkl`; the pickled file containing preprocessing methods for the prediction
+    - `train.csv`; the generated dataset to be used for training the model
+    - `test.csv`; the generated dataset to be used for testing the model
+
+- `notebook`: This folder contains the notebooks involved in the data exploration and machine learing prediction phases of the project. This is useful for those who may want to view the predictions in a more traditional way.
+
+- 
