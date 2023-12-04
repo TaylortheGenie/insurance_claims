@@ -4,11 +4,11 @@
 **Email**: esampson692@gmail.com <br />
 **LinkedIn**: https://www.linkedin.com/in/eugene-taylor-sampson-67869621b/ <br />
 
-:exclamation: If you find this repository, do not hesitate to reach out. Thanks! :exclamation:
+If you find this repository, do not hesitate to reach out. Thanks! 
 
 ## Introduction
 
-This is an end to end machine learning project using flask for deployment.
+This is an end to end machine learning project using flask and Azure for deployment.
 
 The goal of this project is to predict the *possibility* that an insurance policyholder files a claim within the next six months. This is a classification analysis project.
 
@@ -82,6 +82,7 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
     - There were no missing values, nor duplicated variables in the dataset
     - Most features had low cardinality.
     - Three numerical features had already been scaled by the dataset provider, and had to be taken into consideration for the predictive models.
+    - Open the [EDA notebook](./notebook/EDA.ipynb) for more detailed information on the analysis.
 
 6. Data transformation:
     - The best set of features were obtained and selected in this project phase.
@@ -94,6 +95,7 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
     - The best model and its corresponding hyperparamters were returned.
     - The metric used for the basis of the selection is the f1_score.
     - The best model is the GradientBoostingClassifier.
+    - Open the [model training](./notebook/model_training.ipynb) for more detailed information involving the machine learing methods used.
 
 8. Prediction pipeline:
     - This pipeline was necessary for the flask application. 
@@ -102,3 +104,23 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
 
 9. Flask application creation:
     - The flask application is created to use user input to generate predictions inside a web application.
+
+### Frontend Development
+
+1. Web pages:
+    - The webpages were built using bootstrap css.
+    - Responsive design layouts were also implemented
+    - Two web pages were developed.
+    - The home page `home.html` for user input and introduction on the project and `predicted.html` for displaying predictions.
+
+#### User Interface
+
+- The screenshot of the homepage is displayed below
+- However, for those of you might want to view the various responsive layouts, kindly visit the Screenshots folder.
+- Please use the respective commit messages for reference.
+
+**Homepage**
+
+![HomepageUI](./Screenshots/home_laptop.png)
+
+## Conclusion
