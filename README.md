@@ -116,7 +116,7 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
 #### User Interface
 
 - The screenshot of the homepage is displayed below
-- However, for those of you might want to view the various responsive layouts, kindly visit the Screenshots folder.
+- However, for those of you might want to view the various responsive layouts, kindly visit the [Screenshots](./Screenshots/) folder.
 - Please use the respective commit messages for reference.
 
 **Homepage**
@@ -124,3 +124,5 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
 ![HomepageUI](./Screenshots/home_laptop.png)
 
 ## Conclusion
+
+This project has demonstrated the successful implementation of an MLOps pipeline. The entire lifecycle of the model, from data preparation and model training to deployment. I also implemented various best practices for MLOps, such as version control using github, continuous integration with Azure and frontend development. This project has laid a solid foundation for future MLOps endeavors and has shown the value of adopting MLOps practices to ensure the successful delivery and operation of machine learning models! 
