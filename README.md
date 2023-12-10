@@ -8,7 +8,7 @@ If you find this repository, do not hesitate to reach out. Thanks!
 
 ## Introduction
 
-This is an end to end machine learning project using flask and Azure for deployment.
+This is an end to end machine learning project using flask for deployment.
 
 The goal of this project is to predict the *possibility* that an insurance policyholder files a claim within the next six months. This is a classification analysis project.
 
@@ -125,4 +125,4 @@ Special thanks to Analytics Vidhya for providing the [dataset](https://www.kaggl
 
 ## Conclusion
 
-This project has demonstrated the successful implementation of an MLOps pipeline. The entire lifecycle of the model, from data preparation and model training to deployment. I also implemented various best practices for MLOps, such as version control using github, continuous integration with Azure and frontend development. This project has laid a solid foundation for future MLOps endeavors and has shown the value of adopting MLOps practices to ensure the successful delivery and operation of machine learning models! 
+This project has demonstrated the successful implementation of an MLOps pipeline. The entire lifecycle of the model, from data preparation and model training to deployment. I also implemented various best practices for MLOps, such as version control using github, frontend development using bootstrap framework and deployment with flask. This project has laid a solid foundation for future MLOps endeavors and has shown the value of adopting MLOps practices to ensure the successful delivery and operation of machine learning models! 
